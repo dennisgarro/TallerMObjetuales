@@ -30,4 +30,19 @@ public class Metodos {
             }
         }
     }
+
+    public String BuscarProducto(ObjProducto[][] m) {
+        String mensaje = "", MensajeResult = "";
+        System.out.println("ingrese el nombre del producto a buscar");
+        mensaje = sc.next();
+        for (int i = 0; i < m.length; i++) {
+            for (int j = 0; j < m.length; j++) {
+                if (m[i][j].getNombre().toLowerCase().equals(mensaje))
+                {
+                    MensajeResult = "el producto se encuentra en la fila: " + i + " en la columna: " + j;
+                }
+            }
+        }
+        return MensajeResult;
+    }
 }
