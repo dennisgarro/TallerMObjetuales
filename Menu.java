@@ -11,6 +11,8 @@ public class Menu {
         d = sc.nextInt();
         switch (opt) {
             case 1:
+                Punto1 p1 = new Punto1();
+                p1.P1(d);
                 break;
             case 2:
                 break;
