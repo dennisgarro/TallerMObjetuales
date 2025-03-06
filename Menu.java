@@ -44,6 +44,10 @@ public class Menu {
                         break;
                     case 10:
                         break;
+                    case 11:
+                        Pila p = new Pila();
+                        p.pila();
+                        break;
 
                     default:
                         break;

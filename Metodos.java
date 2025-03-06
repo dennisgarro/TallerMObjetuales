@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Metodos {
     Scanner sc = new Scanner(System.in);
@@ -55,7 +56,7 @@ public class Metodos {
                             m3[i2][j3].setCantidad(m1[i][j].getCantidad() + m2[i2][j2].getCantidad());
                             j3 = j3 + 1;
                         } else {
-                            if (j3 > ((m1.length*m1.length)-1)) {
+                            if (j3 > ((m1.length * m1.length) - 1)) {
                                 ObjProducto o = new ObjProducto();
                                 o.setNombre(m1[i][j].getNombre());
                                 o.setCantidad(m1[i][j].getCantidad());
@@ -78,5 +79,52 @@ public class Metodos {
             }
         }
         return m3;
+    }
+
+    public Stack<Integer> LlenarPila() {
+        Stack<Integer> pila = new Stack<>();
+        int opt = 0;
+        boolean bandera = true;
+        while (bandera) {
+            System.out.println("ingrese el dato");
+            pila.push(sc.nextInt());
+            System.out.println("desea ingresar otro registro 1: si, 2: no");
+
+            opt = sc.nextInt();
+            while (opt < 0 || opt > 2) {
+                System.out.println("por favor ingrese un numero de 1 a 2");
+                opt = sc.nextInt();
+            }
+            if (opt == 2) {
+                bandera = false;
+            }
+        }
+        return pila;
+    }
+
+    public void MostrarPila(Stack<Integer> pila) {
+        System.out.println(pila.peek());
+        System.out.println(pila);
+    }
+
+    public Stack<Integer> Eliminar(Stack<Integer> pila) {
+        int numero = 0;
+        Stack<Integer> pilaAux = new Stack<>();
+        System.out.println("ingrese el numero que desea eliminar");
+        numero = sc.nextInt();
+        while (!pila.isEmpty()) {
+            if (pila.peek() == numero) {
+                pila.pop();
+            } else {
+                pilaAux.push(pila.pop());
+            }
+
+        }
+        while (!pilaAux.isEmpty()) {
+           pila.push(pilaAux.pop());
+        }
+        System.out.println(pila);
+        // System.out.println(pilaAux.reversed());
+        return pila;
     }
 }
